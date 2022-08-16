@@ -1,0 +1,22 @@
+* {
+    font-family: Arial, sans-serif;
+}
+.mainDiv {
+    display: flex;
+    flex-direction: column;
+}
+textarea {
+    width: 50vh;
+    height: 30vh;
+    margin: 2vh 0;
+}
+
+.buttons {
+    flex-direction: row;
+}
+
+button {
+    background-color: orange;
+    border: none;
+    padding: .6vh;
+}
