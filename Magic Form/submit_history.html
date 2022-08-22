@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit History</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav-bar">
+  <a href="index.html" id="form-link">Form</a>
+  <a href="submit_history.html" id="history-link">History</a>
+</nav>
+<div class="container">
+     <script>
+         const submissions = JSON.parse(localStorage.getItem('submissions'));
+
+         if(submissions !== null) {
+             submissions.forEach((submissionObject) => {
+                 document.querySelector('.container').innerHTML +=
+                     `<div class="submit-history-card">
+                     <p class="lable"><b>First Name</b></p>
+                     <p class="card-first-name value">${submissionObject.firstname}</p>
+                     <p class="lable"><b>Last Name</b></p>
+                     <p class="card-last-name value">${submissionObject.lastname}</p>
+                     <p class="lable"><b>Email</b></p>
+                     <p class="card-email value">${submissionObject.email}</p>
+                     <p class="lable"><b>Phone</b></p>
+                     <p class="card-phone value">${submissionObject.phone}</p>
+                     <p class="lable"><b>Company</b></p>
+                     <p class="card-company value">${submissionObject.company}</p>
+                     <p class="lable"><b>Adress</b></p>
+                     <p class="card-address value">${submissionObject.address}</p>
+                     <button class="delete-button">Delete</button>
+                </div>`
+                 ;
+             });
+         }
+         document.querySelector('.delete-button').addEventListener('click', () => {
+             document.querySelector('.delete-button').parentElement.remove();
+         })
+     </script>
+</div>
+</body>
+</html>
