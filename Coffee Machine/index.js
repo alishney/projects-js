@@ -9,7 +9,7 @@ const bank = {
     beans: 120,
     cups: 9,
     money: 550,
-    actionFill: function () {
+    Fill: function () {
         let availableAmount = Number(input("Write how many ml of water you want to add:\n"));
         bank.water += availableAmount;
         availableAmount = Number(input("Write how many ml of milk you want to add:\n"));
@@ -19,7 +19,7 @@ const bank = {
         availableAmount = Number(input("Write how many disposable coffee cups you want to add:\n"));
         bank.cups += availableAmount;
     },
-    actionBuy: function () {
+    Buy: function () {
         let action = input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:");
         let availableCoffee = true;
         switch(action) {
@@ -63,7 +63,7 @@ const bank = {
                 break;
         }
     },
-    actionTake: function () {
+    Take: function () {
         console.log(`I gave you ${units[2]}${bank.money}`);
         bank.money = 0;
     },
@@ -78,8 +78,6 @@ ${units[2]}${bank.money} of money
 `);}
 };
 
-Object.seal(bank);
-
 const units = ["ml", "g", "$"];
 let i = true;
 
@@ -87,13 +85,13 @@ while(i){
     const selectedAction  = input("Write action (buy, fill, take, remaining, exit):\n");
     switch(selectedAction) {
         case "buy":
-            bank.actionBuy();
+            bank.Buy();
             break;
         case "fill":
-            bank.actionFill();
+            bank.Fill();
             break;
         case "take":
-            bank.actionTake();
+            bank.Take();
             break;
         case "remaining":
             bank.printCoffeeMachineState();
