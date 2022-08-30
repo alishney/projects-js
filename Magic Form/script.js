@@ -4,10 +4,12 @@ const form = document.querySelector(".source-form");
 
 const formValues = {};
 
+let alreadyAddedSubmissions = JSON.parse(
+    localStorage.getItem('submissions')
+);
+
+
 function submitFormToLocalStorage() {
-    let alreadyAddedSubmissions = JSON.parse(
-        localStorage.getItem('submissions')
-    );
 
     if(alreadyAddedSubmissions === null) {
         alreadyAddedSubmissions = [];
@@ -24,12 +26,10 @@ function submitFormToLocalStorage() {
 function updatingForm() {
 
     let currentFormCondition = {};
-
     inputElementsIdes.forEach(formInputFieldId => {
         formValues[formInputFieldId] = document.getElementById(formInputFieldId).value;
         currentFormCondition[formInputFieldId] = document.getElementById(formInputFieldId).value;
     })
-
     localStorage.setItem(
         'currentFormCondition',
         JSON.stringify(currentFormCondition)
@@ -45,6 +45,7 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
     submitFormToLocalStorage();
     form.reset();
+    updatingForm();
 })
 
 window.addEventListener('storage', (event) => {
@@ -55,4 +56,5 @@ window.addEventListener('storage', (event) => {
         })
     }
 });
+
 

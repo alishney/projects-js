@@ -13,8 +13,8 @@
 <div class="container">
      <script>
          const submissions = JSON.parse(localStorage.getItem('submissions'));
-
          if(submissions !== null) {
+             let i = 0;
              submissions.forEach((submissionObject) => {
                  document.querySelector('.container').innerHTML +=
                      `<div class="submit-history-card">
@@ -33,11 +33,23 @@
                      <button class="delete-button">Delete</button>
                 </div>`
                  ;
+                 document.querySelector('.delete-button').id = String(i);
+                 console.log(Number (document.querySelector(".delete-button").id));
+                 i++;
+                 document.querySelector('.delete-button').addEventListener('click', () => {
+                     let submissions = JSON.parse(localStorage.getItem('submissions'));
+                     let idForDelete = Number(document.querySelector(".delete-button").id);
+                     submissions.splice(idForDelete, 1);
+                     localStorage.setItem(
+                         'submissions',
+                         JSON.stringify(submissions)
+                     );
+                     window.location.reload();
+                 })
              });
+
          }
-         document.querySelector('.delete-button').addEventListener('click', () => {
-             document.querySelector('.delete-button').parentElement.remove();
-         })
+
      </script>
 </div>
 </body>
