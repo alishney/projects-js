@@ -59,9 +59,10 @@ body {
     height: 100%;
 }
 
-.flash-card:hover {
-    transform: rotateY(180deg);
-}
+.card-container:hover .flash-card {
+        transform: rotateY(180deg);
+    }
+
 
 .question-term,
 .answer {
