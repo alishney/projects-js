@@ -8,6 +8,9 @@ let alreadyAddedSubmissions = JSON.parse(
     localStorage.getItem('submissions')
 );
 
+function generateRandomId() {
+    return Math.random().toString(36).slice(2, 7);
+}
 
 function submitFormToLocalStorage() {
 
@@ -26,6 +29,7 @@ function submitFormToLocalStorage() {
 function updatingForm() {
 
     let currentFormCondition = {};
+    formValues['id'] = generateRandomId();
     inputElementsIdes.forEach(formInputFieldId => {
         formValues[formInputFieldId] = document.getElementById(formInputFieldId).value;
         currentFormCondition[formInputFieldId] = document.getElementById(formInputFieldId).value;
@@ -46,6 +50,7 @@ form.addEventListener('submit', (event) => {
     submitFormToLocalStorage();
     form.reset();
     updatingForm();
+    window.location.reload();
 })
 
 window.addEventListener('storage', (event) => {

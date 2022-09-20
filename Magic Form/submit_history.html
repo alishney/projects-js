@@ -14,10 +14,8 @@
      <script>
          const submissions = JSON.parse(localStorage.getItem('submissions'));
          if(submissions !== null) {
-             let i = 0;
              submissions.forEach((submissionObject) => {
-                 document.querySelector('.container').innerHTML +=
-                     `<div class="submit-history-card">
+                 let htmlBlock = `<div class="submit-history-card">
                      <p class="lable"><b>First Name</b></p>
                      <p class="card-first-name value">${submissionObject.first_name}</p>
                      <p class="lable"><b>Last Name</b></p>
@@ -31,25 +29,24 @@
                      <p class="lable"><b>Adress</b></p>
                      <p class="card-address value">${submissionObject.address}</p>
                      <button class="delete-button">Delete</button>
-                </div>`
-                 ;
-                 document.querySelector('.delete-button').id = String(i);
-                 console.log(Number (document.querySelector(".delete-button").id));
-                 i++;
-                 document.querySelector('.delete-button').addEventListener('click', () => {
-                     let submissions = JSON.parse(localStorage.getItem('submissions'));
-                     let idForDelete = Number(document.querySelector(".delete-button").id);
-                     submissions.splice(idForDelete, 1);
+                </div>`;
+
+                 document.querySelector('.container').innerHTML += htmlBlock;
+             });
+
+             let buttons = document.querySelectorAll('.delete-button');
+             submissions.forEach((submissionObject, item) => {
+                 buttons[item].addEventListener('click', (e) => {
+                     let filteredSubmissions = submissions.filter(currentSubmission => currentSubmission.id !== submissionObject.id);
+                     e.target.closest('.submit-history-card').remove();
                      localStorage.setItem(
                          'submissions',
-                         JSON.stringify(submissions)
+                         JSON.stringify(filteredSubmissions)
                      );
                      window.location.reload();
                  })
              });
-
          }
-
      </script>
 </div>
 </body>
