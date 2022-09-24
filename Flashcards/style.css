@@ -34,7 +34,7 @@ body {
     align-self: center;
     background-color: rgba(167, 124, 250, 0.43);
     justify-content: center;
-    text-align: center  ;
+    text-align: center;
     border-radius: 10%;
     padding: 10px 0;
 }
@@ -46,12 +46,13 @@ body {
     align-items: center;
     width: 150px;
     height: 150px;
-    background-color: white;
     border-radius: 20%;
     margin: 15px;
     transform-style: preserve-3d;
-    transition: all .7s ease;
-
+    transition: all .3s ease;
+    transition-delay: 0s;
+    background-color: rgba(167, 124, 250, 0.43);
+    cursor: pointer;
 }
 
 .card {
@@ -60,14 +61,24 @@ body {
 }
 
 .card-container:hover .flash-card {
-        transform: rotateY(180deg);
-    }
+    transform: rotateY(180deg);
+    transition-delay: .3s;
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgb(193 172 239);
+}
 
 
 .question-term,
 .answer {
-    color: #4e2f70;
     font-size: 15px;
+
+}
+.question-term {
+    color: white;
+}
+
+.answer {
+    color: #4e2f70;
 }
 
 .front-card {
