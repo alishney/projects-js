@@ -41,3 +41,7 @@ document.getElementById("save-text-file-action-button").addEventListener("click"
     document.body.removeChild(element);
 });
 
+document.getElementById('copy-text-action-button').addEventListener('click', () => {
+    document.getElementById('source-textarea').select();
+    document.execCommand(('copy'));
+})
