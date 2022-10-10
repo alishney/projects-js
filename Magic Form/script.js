@@ -1,7 +1,5 @@
 const inputElementsIdes  = ['first_name', 'last_name', 'email', 'phone', 'company', 'address'];
-
 const form = document.querySelector(".source-form");
-
 const formValues = {};
 
 let alreadyAddedSubmissions = JSON.parse(
@@ -13,13 +11,10 @@ function generateRandomId() {
 }
 
 function submitFormToLocalStorage() {
-
     if(alreadyAddedSubmissions === null) {
         alreadyAddedSubmissions = [];
     }
-
     alreadyAddedSubmissions.push(formValues);
-
     localStorage.setItem(
         'submissions',
         JSON.stringify(alreadyAddedSubmissions)
@@ -27,7 +22,6 @@ function submitFormToLocalStorage() {
 }
 
 function updatingForm() {
-
     let currentFormCondition = {};
     formValues['id'] = generateRandomId();
     inputElementsIdes.forEach(formInputFieldId => {
@@ -38,7 +32,6 @@ function updatingForm() {
         'currentFormCondition',
         JSON.stringify(currentFormCondition)
     );
-
 }
 
 inputElementsIdes.forEach((id) => {
@@ -54,7 +47,7 @@ form.addEventListener('submit', (event) => {
 })
 
 window.addEventListener('storage', (event) => {
-    if(event.key == 'currentFormCondition') {
+    if(event.key === 'currentFormCondition') {
         inputElementsIdes.forEach((id) => {
             const currentFormState = JSON.parse(localStorage.getItem('currentFormCondition'));
             document.getElementById(id).value = currentFormState[id];
