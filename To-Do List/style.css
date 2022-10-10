@@ -137,3 +137,55 @@ button {
     box-shadow: 0 0 15px 2px #52899b;
 ;
 }
+
+@media (max-width: 670px) {
+    body {
+        width: 100vh;
+        font-size: 22px;
+    }
+    .list-wrapper {
+        width: 100%;
+        max-height: 100%;
+        margin: 0 auto;
+    }
+
+    .list-title {
+        font-size: 1.5em ;
+    }
+
+    #input-task {
+        width: 50vh;
+        font-size: 1em;
+    }
+
+    .input-task-block {
+        width: 70vh;
+    }
+
+    #add-task-button {
+        height: 2.5em;
+        width: 6em;
+        font-size: .8em;
+    }
+
+    .delete-btn {
+        height: 2.5em;
+        width: 2.5em;
+        right: 5em;
+    }
+
+    .fake-checkmark {
+        height: 1.2em;
+        width: 1.2em;
+        box-shadow: 0 0 1px 1px #52899b;
+        border-radius: 100%;
+    }
+
+    .task {
+        padding: 0 2em;
+    }
+
+    .task-text {
+        width: 15rem;
+    }
+}
