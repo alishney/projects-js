@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.wrapper {
+    margin: 6vh auto;
+    width: 70vw;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    padding: 0.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(211, 211, 211, 0.54);
+    width: 100%;
+    outline: none;
+}
+
+.search-icon {
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    right: 0.8rem;
+}
+
+.container-with-users {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.user-card {
+    width: 20rem;
+    height: 15rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-flow: column;
+    box-shadow: rgba(229, 224, 224, 0.35) 0 8px 24px;
+    margin: 0.4rem;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.user-phone-number::before {
+    content: " ";
+    background-image: url("../img/phone-icon.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 19px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: -1px;
+}
+
+.user-email::before {
+    content: " ";
+    background-image: url("../img/email-icon.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.user-full-name {
+    padding: 1rem 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.user-phone-number,
+.user-email {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.3rem;
+    color: #8a8a8a;
+    width: 18rem;
+}
+
+.user-email {
+    font-size: 12px;
+    text-decoration: underline;
+}
