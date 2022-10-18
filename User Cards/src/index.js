@@ -24,7 +24,7 @@ function update() {
         return response.json();
         }))
         .then((users) => {
-            const searchingResult = users.filter((item) => item.name.toLowerCase().includes(searchInput.value));
+            const searchingResult = users.filter((usersFilteredByName) => usersFilteredByName.name.toLowerCase().includes(searchInput.value.toLowerCase()));
             renderUsers(searchingResult);
         });
 }
