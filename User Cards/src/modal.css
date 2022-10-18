@@ -1,0 +1,75 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 15, 65, 0.22);
+    display: none;
+}
+
+.modal {
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    margin: 150px auto;
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.close-modal-btn {
+    background: url("../img/cross.svg") #c338cb no-repeat center;
+    background-size: 15px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.full-name-modal {
+    width: 100%;
+    font-size: 32px;
+    font-weight: bold;
+    padding: 1.4rem 0;
+}
+
+.points,
+.user-data {
+    height: 18vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 1rem 0 0;
+}
+
+.point {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.user-data,
+.extra-data {
+    color: #8a8a8a;
+}
+
+.extra-data-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    margin: 1rem 0;
+}
+
+.modal-user-info-fields {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 20px;
+}

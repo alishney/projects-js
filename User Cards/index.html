@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Users</title>
+  <link rel="stylesheet" href="./src/main.css">
+  <link rel="stylesheet" href="./src/modal.css">
+</head>
+<body>
+<div class="wrapper">
+  <div class="input-container">
+    <input type="text" class="search-input" />
+    <img
+            class="search-icon"
+            src="./img/search-icon.svg"
+            alt="Search icon"
+            width="16"
+            height="16"
+    />
+  </div>
+  <div class="container-with-users"></div>
+  <div class="modal-overlay">
+    <div class="modal">
+      <button class="close-modal-btn"></button>
+      <div class="full-name-modal" id="modal-field-name">
+      </div>
+      <div class="modal-user-info-fields">
+        <p class="point">Телефон</p>
+        <p id="modal-field-phone"></p>
+        <p class="point">Почта</p>
+        <p id="modal-field-email"></p>
+        <p class="point">Дата приема</p>
+        <p id="modal-field-hire_date"></p>
+        <p class="point">Должность</p>
+        <p id="modal-field-position_name"></p>
+        <p class="point">Подразделение</p>
+        <p id="modal-field-departament"></p>
+      </div>
+      <div class="extra-data">
+        <div class="extra-data-title">
+          <b>Дополнительная информация</b>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Architecto aspernatur autem culpa doloribus dolorum error id
+          ipsum, laboriosam laborum magnam maxime minima officia, officiis
+          quidem quod ratione.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="./src/index.js"></script>
+</html>
