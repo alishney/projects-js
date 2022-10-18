@@ -40,7 +40,7 @@ function hideModal() {
 searchInput.addEventListener("input", update);
 
 modalOverlay.addEventListener("click", (e) => {
-    if (e.currentTarget === modalOverlay) {
+    if (e.target === modalOverlay) {
         hideModal();
     }
 });
