@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Montserrat, serif;
+    font-family: Montserrat, sans-serif;
     outline: none;
 }
 
@@ -62,7 +64,8 @@ button {
     padding: 10px 10px 10px;
     width: 650px;
     max-height: 350px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .block-with-tasks::-webkit-scrollbar {
@@ -86,18 +89,20 @@ button {
     list-style: none;
     padding: 10px 15px;
     position: relative;
-    align-items: center;
+    align-items: flex-start;
     border-radius: 15px;
     width: 600px;
     margin: 10px auto;
 }
 
-.task:hover {
-    box-shadow: rgba(82, 137, 155, 0.42) 0 5px 25px 0;}
+.task:hover, .task + .task:focus {
+    box-shadow: rgba(82, 137, 155, 0.35) 0 5px 25px 0;
+}
 
 .task-text {
     width: 500px;
     padding: 10px 0 10px 10px;
+    overflow-wrap: break-word;
 }
 
 .delete-btn {
@@ -112,6 +117,7 @@ button {
     border-style: none;
     padding-bottom: 2px;
     justify-self: flex-end;
+    margin-top: 5px;
 }
 
 .delete-btn:focus {
@@ -127,6 +133,7 @@ button {
     width: 15px;
     box-shadow: 0 0 1px 1px #52899b;
     border-radius: 100%;
+    margin-top: 12px;
 }
 
 .checkmark:checked + .fake-checkmark {
@@ -138,9 +145,8 @@ button {
 ;
 }
 
-@media (max-width: 670px) {
+@media (max-width: 700px) {
     body {
-        width: 100vh;
         font-size: 22px;
     }
     .list-wrapper {
@@ -150,42 +156,63 @@ button {
     }
 
     .list-title {
-        font-size: 1.5em ;
+        font-size: 34px;
     }
 
     #input-task {
-        width: 50vh;
-        font-size: 1em;
+        width: 400px;
     }
 
     .input-task-block {
-        width: 70vh;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
     }
 
     #add-task-button {
-        height: 2.5em;
-        width: 6em;
-        font-size: .8em;
+        height: 40px;
+        width: 110px;
+    }
+
+    .block-with-tasks {
+        width: 100%;
     }
 
     .delete-btn {
-        height: 2.5em;
-        width: 2.5em;
-        right: 5em;
+        height: 40px;
+        width: 40px;
+        right: 80px;
     }
 
     .fake-checkmark {
-        height: 1.2em;
-        width: 1.2em;
+        height: 19px;
+        width: 19px;
         box-shadow: 0 0 1px 1px #52899b;
         border-radius: 100%;
     }
 
     .task {
-        padding: 0 2em;
+        padding: 0 32px;
+        width: 100%;
     }
 
     .task-text {
-        width: 15rem;
+        width: 70%;
     }
+
+    .fake-checkmark {
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 450px) {
+    #input-task {
+        width: 100%;
+    }
+
+    .delete-btn {
+        right: 30px;
+    }
+
 }

@@ -1,32 +1,42 @@
 "use strict";
-const listWrapper = document.querySelector('.list-wrapper');
-const addBtn = document.getElementById('add-task-button');
+//const listWrapper = document.querySelector('.list-wrapper');
+const addTaskButton = document.getElementById('add-task-button');
 const taskInput = document.getElementById('input-task');
+const taskList = document.querySelector('#task-list');
 
-const actionBtnFunction = (event) => {
-    const target = event.target;
-
-    if (!(target === addBtn || target.className === 'delete-btn')) return;
-    if (target.className === 'delete-btn') return target.closest('.task').remove();
-    if (target === addBtn) {
-        const taskHtmlTemplate = `<label class="task">
+const getTaskTemplate = (taskText) => {
+    return `<label class="task">
                       <input type="checkbox" class="checkmark">
                       <span class="fake-checkmark"></span>
-                      <span class="task-text">${taskInput.value}</span>
+                      <span class="task-text">${taskText}</span>
                       <button class="delete-btn">x</button>
-                  </label>`;
-
-        if (taskInput.value.trim() !== '') {
-            document.getElementById('task-list').innerHTML += taskHtmlTemplate;
-            taskInput.value = ''
-        }
-    }
+             </label>`;
 }
 
-listWrapper.addEventListener('click', (event) => {
-    actionBtnFunction(event)
+function clearTaskInput() {
+    taskInput.value = ''
+}
+
+function addTask(TaskTemplate) {
+    taskList.innerHTML += TaskTemplate
+}
+
+addTaskButton.addEventListener('click', () => {
+    if (taskInput.value.trim() === '') return;
+    const taskText = getTaskTemplate(taskInput.value);
+    addTask(taskText);
+    clearTaskInput()
 })
 
-document.getElementById('input-task').addEventListener('keypress', (event) => {
-    if(event.key === 'Enter') return actionBtnFunction(event);
+taskInput.addEventListener('keydown', (event) => {
+    if(event.key !== 'Enter') return;
+    if (taskInput.value.trim() === '') return;
+    const taskText = getTaskTemplate(taskInput.value);
+    addTask(taskText);
+    clearTaskInput()
+})
+
+taskList.addEventListener('click', (event) => {
+    const clickedElement = event.target;
+    if (clickedElement.className === 'delete-btn') return clickedElement.closest('.task').remove();
 })
