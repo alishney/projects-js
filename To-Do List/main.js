@@ -17,22 +17,19 @@ function clearTaskInput() {
     taskInput.value = ''
 }
 
-function addTask(TaskTemplate) {
-    taskList.innerHTML += TaskTemplate
+function addTask(TaskText) {
+    if (taskInput.value.trim() === '') return;
+    taskList.innerHTML += TaskText;
 }
 
 addTaskButton.addEventListener('click', () => {
-    if (taskInput.value.trim() === '') return;
-    const taskText = getTaskTemplate(taskInput.value);
-    addTask(taskText);
+    addTask(getTaskTemplate(taskInput.value));
     clearTaskInput()
 })
 
 taskInput.addEventListener('keydown', (event) => {
     if(event.key !== 'Enter') return;
-    if (taskInput.value.trim() === '') return;
-    const taskText = getTaskTemplate(taskInput.value);
-    addTask(taskText);
+    addTask(getTaskTemplate(taskInput.value));
     clearTaskInput()
 })
 
