@@ -17,9 +17,9 @@ function clearTaskInput() {
     taskInput.value = ''
 }
 
-function addTask(TaskText) {
+function addTask(taskText) {
     if (taskInput.value.trim() === '') return;
-    taskList.innerHTML += TaskText;
+    taskList.innerHTML += taskText;
 }
 
 addTaskButton.addEventListener('click', () => {
