@@ -2,10 +2,10 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif ;
+    font-family: Arial, sans-serif;
 }
 
-.nav-bar{
+.nav-bar {
     margin: 0 auto;
     padding: 10px;
     background-color: #4d6475;
@@ -17,6 +17,7 @@ a {
     cursor: pointer;
     text-decoration: none;
 }
+
 .source-form {
     display: flex;
     flex-direction: column;
@@ -34,7 +35,8 @@ input {
 label {
     width: 20px;
 }
-.input-block{
+
+.input-block {
     width: 100%;
     margin-top: 15px;
 }
@@ -43,7 +45,7 @@ label {
     margin: 23px auto;
     padding: 7px 0;
     width: 130px;
-    background-color: #8ea8bb;
+    background-color: #4d6475;
     border-style: none;
     border-radius: 10px;
     color: white;
@@ -51,21 +53,22 @@ label {
 }
 
 .submit-history-card {
-    display: flex;
-    flex-direction: column;
     width: 600px;
     max-height: 450px;
     background-color: #f5f7fa;
     margin: 30px auto;
     padding: 40px;
     border-radius: 50px;
-    box-shadow: .8rem 1rem 0 #8ea8bb;
-    }
-
-.value {
-    margin: 4px 10px 14px ;
+    box-shadow: .8rem 1rem 0.7rem #99aab7;
 }
 
+.value {
+    margin: 4px 10px 14px;
+}
+
+.wrapper-delete-button {
+    /*justify-self: footer;*/
+}
 
 .delete-button {
     display: flex;
@@ -78,6 +81,12 @@ label {
     font-stretch: ultra-expanded;
     letter-spacing: 1px;
     width: 85px;
-    margin: 12px auto;
+    margin: 3em auto 0;
     cursor: pointer;
+}
+
+.fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: .5em;
 }
